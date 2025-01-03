@@ -1,0 +1,650 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#app {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    background-color: rgba(0, 0, 0, 0.856);
+    width: 250px;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    color: #FF1621;
+}
+
+
+#content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+
+ul {
+    margin-top: 4rem;
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 4rem;
+}
+li i{
+     font-size: 1.6rem;
+     margin-left: 1rem;
+}
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.3rem;
+}
+a.active {
+    color: #FF1621; 
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #FF1621;
+}
+.formulario{
+    width: 95%;
+    height: 4rem;
+    padding: 1rem;
+}
+.formulario_2{
+    width: 95%;
+    padding: 1rem;
+}
+.formulario_informe_folios{
+    width: 95%;
+    padding: 1rem;
+}
+#form_genera_evento{
+    width: 100%;
+    height: 4rem;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    padding: 2rem;
+}
+
+.botones{
+    background-color: rgba(0, 128, 0, 0.671);
+    color: white;
+    border: none;
+    height: 3rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    width: 14rem;
+}
+.botones:hover{
+    cursor: pointer;
+    background-color: rgba(0, 128, 0, 0.466);
+}
+.claves{
+    display: flex;
+    flex-direction: column;
+}
+.inputs_pagina1{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    gap: 2rem;
+}
+
+.inputs_informe_folios{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    gap: 2rem;
+}
+
+.input_consulta{
+    height: 2.3rem;
+    width: 16rem;
+    border: 1px solid #FF1621;
+    border-radius: 5px;
+}
+
+.input_consulta_interno{
+    height: 3rem;
+    width: 25rem;
+    border: 1px solid #FF1621;
+    border-radius: 5px;
+}
+.input_consulta_interno_folios{
+    height: 3rem;
+    width: 17rem;
+    border: 1px solid #FF1621;
+    border-radius: 5px;
+}
+
+.formulario_amesis{
+    margin-top: 3rem;
+    width: 90%;
+    margin: auto;
+    background-color: #f5f8fba6;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5); 
+    padding: 2rem;
+    margin-top: 4rem;
+}
+
+.boton_evento{
+    grid-row: 12;
+    grid-column: 3;
+}
+.subir_evento{
+    background-color: rgba(0, 128, 0, 0.671);
+    padding: 1.4rem;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+.subir_evento:hover{
+    cursor: pointer;
+    background-color: rgba(0, 128, 0, 0.466);
+}
+.pagina{
+    width: 100%;
+    display: none;
+    
+}
+.pagina span{
+    font-size: 2rem;
+}
+
+.pagina:first-child {
+    display: block;
+}
+.boton-siguiente, .boton-anterior, .boton-finalizar {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #FF1621;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 15rem;
+    margin-top: 2rem;
+    height: 3rem;
+}
+.boton-siguiente:hover, .boton-anterior:hover, .boton-finalizar:hover {
+    background-color: #ff1622a9;
+}
+.input_readonly{
+    border: 2px solid #FF1621;
+    cursor: not-allowed;
+    outline: none;
+    background-color: rgba(128, 128, 128, 0.192);
+}
+.clientes_select{
+   background-color: blue;
+   grid-column: span 3;
+}
+
+#clientes,#unidades{
+    width: 35rem;
+
+}
+#opciones,#unidades_informe{
+    width: 30rem;
+}
+
+.formulario_folios{
+    width: 70%;
+    margin: auto;
+    background-color: #f5f8fba6;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5); 
+    padding: 2rem;
+    margin-top: 1rem;
+}
+#tabla_folios{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 4rem;
+    width: 100%;
+    overflow-x: auto;
+}
+.tabla_folios_tabla{
+    width: 90%;
+    border-collapse: collapse;
+    font-size: 16px;
+    text-align: left;
+    overflow-x: auto;
+}
+
+.tabla_folios_tabla thead tr {
+    background-color: #FF1621;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  .tabla_folios_tabla th,
+  .tabla_folios_tabla td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  .tabla_folios_tabla tbody tr {
+    background-color: #ffffff;
+  }
+  
+  .tabla_folios_tabla tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+  
+  .tabla_folios_tabla tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+  }
+  
+  .tabla_folios_tabla td {
+    word-wrap: break-word;
+  }
+  
+
+  @media screen and (max-width: 600px) {
+    .tabla_folios_tabla th, .tabla_folios_tabla td {
+      font-size: 14px;
+      padding: 10px 8px;
+    }
+  }
+  .no-data-cell {
+    text-align: center;
+    padding: 20px;
+    font-size: 16px;
+    color: #999;
+    background-color: #f9f9f9;
+    font-style: italic;
+  }
+
+#pagination{
+    margin-bottom: 10rem;
+}
+#pagination button {
+    padding: 5px 15px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+#pagination button.active {
+    background-color: #FF1621;
+    color: white;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.notification {
+    position: fixed;
+    top: -200px;
+    right: 100px;
+    background-color: red;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    transition: top 0.5s ease;
+    display: flex;
+    align-items: center;
+    width: 330px;
+    font-size: 1.3rem;
+    font-size: 15px;
+}
+
+.notification.show {
+    top: 100px;
+}
+.notification-icon {
+    margin-right: 10px;
+    font-size: 10px;
+    color: rgba(0, 128, 0, 0.877);
+}
+.notification-icon img{
+  width: 50px;
+} 
+.progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 2s linear; 
+}
+
+.progress-bar.loading::after {
+    transform: scaleX(1); 
+}
+
+
+#tabla_folio_unico{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 4rem;
+    width: 100%;
+    overflow-x: auto;
+}
+.tabla_folio_unico_tabla{
+    width: 90%;
+    border-collapse: collapse;
+    font-size: 16px;
+    text-align: left;
+    overflow-x: auto;
+}
+
+.tabla_folio_unico_tabla thead tr {
+    background-color: #FF1621;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  .tabla_folio_unico_tabla th,
+  .tabla_folio_unico_tabla td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  .tabla_folio_unico_tabla tbody tr {
+    background-color: #ffffff;
+  }
+  
+  .tabla_folio_unico_tabla tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+  
+  .tabla_folio_unico_tabla tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+  }
+  
+  .tabla_folio_unico_tabla td {
+    word-wrap: break-word;
+  }
+  
+
+  @media screen and (max-width: 600px) {
+    .tabla_folios_tabla th, .tabla_folios_tabla td {
+      font-size: 14px;
+      padding: 10px 8px;
+    }
+  }
+
+
+  #tabla_folio_evento{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 4rem;
+    width: 40%;
+    overflow-x: auto;
+}
+.tabla_folio_evento_tabla{
+    width: 90%;
+    border-collapse: collapse;
+    font-size: 16px;
+    text-align: left;
+    overflow-x: auto;
+}
+
+.tabla_folio_evento_tabla thead tr {
+    background-color: #FF1621;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  .tabla_folio_evento_tabla th,
+  .tabla_folio_evento_tabla td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  .tabla_folio_evento_tabla tbody tr {
+    background-color: #ffffff;
+  }
+  
+  .tabla_folio_evento_tabla tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+  }
+  
+  .tabla_folio_evento_tabla tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+  }
+  
+  .tabla_folio_evento_tabla td {
+    word-wrap: break-word;
+  }
+  
+
+  @media screen and (max-width: 600px) {
+    .tabla_folio_evento_tabla th, .tabla_folio_evento_tabla td {
+      font-size: 14px;
+      padding: 10px 8px;
+    }
+  }
+
+
+.copyButton {
+    background-color: #FF1621;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.copyButton:hover {
+    background-color: #ff1622d3;
+}
+.boton_excel{
+    color:white;
+    background-color: #FF1621;
+    font-size: 2rem;
+    border: none;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    align-self: flex-end;
+    margin-right: 10rem;
+}
+.boton_excel:hover{
+    cursor: pointer;
+    background-color: #ff1622bb;
+}
+
+/*Responsiveeeee*/
+@media (min-width: 310px) and (max-width: 374px) {
+    .sidebar {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #app{
+        flex-direction: column;
+        width: 100%;
+    }
+    .inputs_pagina1,.inputs_informe_folios{
+        grid-template-columns: repeat(1,1fr);
+        place-items: center;
+    }
+    .input_consulta_interno,.input_consulta_interno_folios{
+        width: 12rem;
+    }
+    #clientes,#unidades{
+        width: 12rem;
+    
+    }    
+    
+    .formulario_2{
+        width: 80%;
+    }
+   
+    /* i{
+        display: none;
+    } */
+    .boton-siguiente, .boton-anterior, .boton-finalizar {
+        width: 12rem;
+        margin-top: 2rem;
+        height: 3rem;
+    }
+    #opciones,#unidades_informe{
+        width: 12rem;
+    }
+    .boton_excel{
+        color:white;
+        background-color: #FF1621;
+        font-size: 1rem;
+        border: none;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border-radius: 5px;
+        align-self: center;
+        margin-right: 10rem;
+    }
+    .boton-anterior,.boton-siguiente,.boton-finalizar{
+        margin-left: 1rem;      
+    }
+   
+}
+
+@media (min-width: 375px) and (max-width: 667px) {
+    .sidebar {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #app{
+        flex-direction: column;
+        width: 100%;
+    }
+    .inputs_pagina1 ,.inputs_informe_folios{
+        grid-template-columns: repeat(1,1fr);
+        place-items: center;
+    }
+    .input_consulta_interno,.input_consulta_interno_folios{
+        width: 12rem;
+    }
+    #clientes,#unidades{
+        width: 12rem;
+    
+    }
+    #tabla_folios{
+        width: 90%;
+    }
+    .tabla_folios_tabla{
+        width: 50%;
+    }
+    .formulario_2{
+        width: 80%;
+    }
+    #opciones,#unidades_informe{
+        width: 12rem;
+    }
+    .boton_excel{
+        color:white;
+        background-color: #FF1621;
+        font-size: 1rem;
+        border: none;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border-radius: 5px;
+        align-self: center;
+        margin-right: 10rem;
+    }
+    .boton-anterior,.boton-siguiente,.boton-finalizar{
+        margin-left: 1rem;      
+    }
+   
+
+}
+
+@media (min-width: 768px) and (max-width: 1224px) {
+    .input_consulta_interno,.input_consulta_interno_folios{
+        width: 8rem;
+    }
+    .formulario_2{
+        width: 93%;
+    }
+    .formulario_informe_folios{
+        width: 80%;
+    }
+    .formulario_folios{
+        width: 80%;
+    }
+    .tabla_folios{
+        width: 100%;
+        background-color: #FF1621;
+    }
+    .parrafo_folios{
+        font-size: 50px;
+    }
+    #opciones,#unidades_informe{
+        width: 16rem;
+    }
+    .boton_excel{
+        color:white;
+        background-color: #FF1621;
+        font-size: 2rem;
+        border: none;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border-radius: 5px;
+        align-self: center;
+        margin-right: -20rem;
+    }
+    .inputs_informe_folios{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+@media (min-width: 1225px) and (max-width: 1366px) {
+    .input_consulta_interno,.input_consulta_interno_folios{
+        width: 12rem;
+    }
+    
+
+}
+
+@media (min-width: 1367px) and (max-width: 1730px) {
+    .input_consulta_interno{
+        width: 18rem;
+    }
+    .input_consulta_interno_folios{
+        width: 12rem;
+    }
+}
+

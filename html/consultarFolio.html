@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMESIS web service</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div id="app">
+        <div id="sidebar" class="sidebar">
+            <h2>AMESIS</h2>
+            <ul>
+                <li><a href="../index.html">Genera evento <i class="bi bi-ui-checks"></i></a></li>
+                <li><a href="consultarFolio.html">Consultar folio <i class="bi bi-calendar2-date"></i></a></li>
+                <li><a href="informe_folios.html">Informe de folios<i class="bi bi-file-text"></i></a></li>
+                <li><a href="ver_folios.html">Informe de eventos<i class="bi bi-archive-fill"></i></a></li>
+            </ul>
+        </div>
+        <div id="content">
+            <h1>Consultar Folio</h1>
+            <p>Aquí puedes consultar el avance individual de tus folio con AMESIS</p>
+
+            <div class="formulario_2">
+                <form class="formulario_amesis" id="formularioPaginado" novalidate>
+                    <div class="pagina" id="pagina1">
+                        <span>Información del socio</span>
+                        <div class="inputs_pagina1">
+                            <div class="claves">
+                                <label for="socio">Socio</label>
+                                <input class="input_consulta_interno" type="text" id="socio" name="socio" placeholder="ID socio" required>
+                            </div>
+                            <div class="claves">
+                                <label for="contrasena">Contraseña</label>
+                                <input class="input_consulta_interno" type="password" id="contrasena" name="contrasena" placeholder="Contraseña amesis" required>
+                            </div>
+                            <div class="claves">
+                                <label for="folio">Folio evento</label>
+                                <input class="input_consulta_interno" type="text" id="folio" name="folio" placeholder="Folio PUC del evento" required>
+                            </div>
+                        </div>
+                        <button class="boton-finalizar" type="submit">Consultar folio</button>
+                    </div>                   
+                </form>
+            </div>
+
+            <div id="tabla_folio_unico">
+                <table class="tabla_folio_unico_tabla">
+                    <thead>
+                        <tr>
+                            <th>Folio</th>
+                            <th>Tipo de evento</th>
+                            <th>Placas</th>
+                            <th>Estatus</th>
+                            <th>Estatus Autoridad</th>
+                            <th>Estatus Oficial</th>
+                            <th>Última fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody id="body_folio_unico">
+                        <tr class="no-data-cell">
+                            <td colspan="7">Consulta el estatus de tu folio</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="pagination"></div>
+            </div>
+                 
+        </div>
+    </div>
+    <div id="notification" class="notification">
+        <span id="notificationMessage"></span>
+        <div class="progress-bar"></div>
+    </div>
+    <script src="../js/slider.js"></script>
+    <script src="../js/consultar_folios.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMESIS web service</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs/build/css/themes/default.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/alertifyjs/build/alertify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+
+</head>
+<body>
+    <div id="app">
+        <div id="sidebar" class="sidebar">
+            <h2>AMESIS</h2>
+            <ul>
+                <li><a href="../index.html">Genera evento <i class="bi bi-ui-checks"></i></a></li>
+                <li><a href="consultarFolio.html">Consultar folio <i class="bi bi-calendar2-date"></i></a></li>
+                <li><a href="informe_folios.html">Informe de folios<i class="bi bi-file-text"></i></a></li>
+                <li><a href="ver_folios.html">Informe de eventos<i class="bi bi-archive-fill"></i></a></li>
+            </ul>
+        </div>
+        <div id="content">
+            <h1>Ver Folios</h1>
+            <p>Aquí puedes ver los folios que haz generado con AMESIS</p>
+            <div class="formulario_informe_folios">
+                <form class="formulario_amesis" id="consultarFolio" novalidate>
+                    <div class="pagina" id="pagina1">
+                        <span>Ingrese el id otorgado por FULLTIME y su consulta</span>
+                        <div class="inputs_pagina1">
+                            <div class="claves">
+                                <label for="id_fulltime">Id fulltime</label>
+                                <input class="input_consulta_interno" type="text" id="id_fulltime" name="id_fulltime" placeholder="ID recibido de fulltime" required>
+                            </div>
+                            <div class="claves">
+                                <label for="clientes">Opción de consulta</label>
+                                <select class="input_consulta_interno" name="opciones" id="opciones" required>
+                                    <option value="" disabled selected>--Seleccione una opción de consulta--</option>
+                                    <option value="Todos">Todas las unidades</option>
+                                    <option value="Unica">Seleccionar unidad</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="button" class="boton-siguiente" onclick="mostrarPagina(2); obtenerPlacas()">Siguiente</button>
+                    </div>
+
+                    <div class="pagina" id="pagina2">
+                        <span class="parrafo_folios">Seleccione la unidad y periodo de fechas</span>
+                        <div class="inputs_pagina1">
+                            <div class="claves">
+                                <label for="clientes">Placas de la unidad</label>
+                                <select class="input_consulta_interno" name="unidades_informe" id="unidades_informe">
+                                    <option value="" disabled selected>--Seleccione una unidad--</option>
+                                </select>
+                            </div>
+                            <div class="claves">
+                                <label for="fecha_incio">Fecha inicio</label>
+                                <input class="input_consulta_interno" type="datetime-local" id="fecha_incio" name="fecha_incio" required>
+                            </div>
+                            <div class="claves">
+                                <label for="fecha_fin">Fecha fin</label>
+                                <input class="input_consulta_interno" type="datetime-local" id="fecha_fin" name="fecha_fin" required>
+                            </div>
+                            
+                        </div>
+                        <button type="button" class="boton-anterior" onclick="mostrarPagina(1)">Anterior</button>
+                        <button class="boton-finalizar" type="submit">Ver mis folios</button>
+                    </div>                   
+                </form>
+            </div>
+
+            
+            <div id="tabla_folios">
+                <button class="boton_excel" id="download-btn"><i class="bi bi-file-earmark-excel"></i></button>
+                <table class="tabla_folios_tabla" id="tabla_excel">
+                    <thead>
+                        <tr>
+                            <th>Id vehículo</th>
+                            <th>Placa</th>
+                            <th>Fecha</th>
+                            <th>Estatus</th>
+                            <th>Tipo de evento</th>
+                            <th>Folio</th>
+                        </tr>
+                    </thead>
+                    <tbody id="body_folios">
+                        <tr class="no-data-cell">
+                            <td colspan="5">Consulta tus folios</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="pagination"></div>
+            </div>            
+
+        </div>
+        
+
+            
+
+        </div>
+          <div id="notification" class="notification">
+            <span id="notificationMessage"></span>
+            <div class="progress-bar"></div>
+        </div>
+    </div>
+    <script src="../js/slider.js"></script>
+    <script src="../js/folios_tabla.js"></script>
+    <!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+</body>
+</html>

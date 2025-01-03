@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMESIS web service</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div id="app">
+        <div id="sidebar" class="sidebar">
+            <h2>AMESIS</h2>
+            <ul>
+                <li><a href="../index.html">Genera evento <i class="bi bi-ui-checks"></i></a></li>
+                <li><a href="consultarFolio.html">Consultar folio <i class="bi bi-calendar2-date"></i></a></li>
+                <li><a href="informe_folios.html">Informe de folios<i class="bi bi-file-text"></i></a></li>
+                <li><a href="ver_folios.html">Informe de eventos<i class="bi bi-archive-fill"></i></a></li>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+            </ul>
+        </div>
+        <div id="content">
+            <h1>Consultar Folios</h1>
+            <p>Aquí puedes consultar tus folios generados con AMESIS</p>
+
+            <div class="formulario_informe_folios">
+                <form class="formulario_amesis" id="formularioPaginado" novalidate>
+                    <div class="pagina" id="pagina1">
+                        <span>Información del socio</span>
+                        <div class="inputs_informe_folios">
+                            <div class="claves">
+                                <label for="socio">Socio</label>
+                                <input class="input_consulta_interno_folios" type="text" id="socio" name="socio" placeholder="ID socio" required>
+                            </div>
+                            <div class="claves">
+                                <label for="contrasena">Contraseña</label>
+                                <input class="input_consulta_interno_folios" type="password" id="contrasena" name="contrasena" placeholder="Contraseña amesis" required>
+                            </div>
+                            <div class="claves">
+                                <label for="fecha_incio">Fecha inicio</label>
+                                <input class="input_consulta_interno_folios" type="datetime-local" id="fecha_incio" name="fecha_incio" required>
+                            </div>
+                            <div class="claves">
+                                <label for="fecha_fin">Fecha fin</label>
+                                <input class="input_consulta_interno_folios" type="datetime-local" id="fecha_fin" name="fecha_fin" required>
+                            </div>
+
+                        </div>
+                        <button class="boton-finalizar" type="submit">Consultar folios</button>
+                    </div>                   
+                </form>
+            </div>
+            
+            <div id="tabla_folio_unico">
+                <button class="boton_excel" id="download-btn"><i class="bi bi-file-earmark-excel"></i></button>
+                <table class="tabla_folio_unico_tabla" id="TEST">
+                    <thead>
+                        <tr>
+                            <th>Folio</th>
+                            <th>Evento</th>
+                            <th>Carga</th>
+                            <th>Estatus</th>
+                            <th>Remolque</th>
+                            <th>Placas</th>
+                            <th>Económico</th>
+                            <th>Estatus Autoridad</th>
+                            <th>Estatus Oficial</th>
+                        </tr>
+                    </thead>
+                    <tbody id="body_informe_folios">
+                        <tr class="no-data-cell">
+                            <td colspan="9">Consulta tus folios generados</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="pagination"></div>
+            </div>
+                 
+        </div>
+    </div>
+    <div id="notification" class="notification">
+        <span id="notificationMessage"></span>
+        <div class="progress-bar"></div>
+    </div>
+    <script src="../js/slider.js"></script>
+    <script src="../js/informe_folios.js"></script>
+</body>
+</html>
